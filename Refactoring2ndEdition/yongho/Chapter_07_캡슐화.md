@@ -87,6 +87,13 @@ class Person {
 	removeCourse (aCourse) { ... }
 }
 ```
+```js
+const man = new Person();
+man.courses.push('a-course');
+man.courses.push('b-course');
+//console.log(man.courses), 외부에서 클래스의 컬랙션을 마음대로 수정 가능하는 냄새
+// ['a-course', 'b-course']
+```
 
 ```js
 const man = new Person();
