@@ -33,6 +33,19 @@ if (anEmployee.isPartTime) return 0;
 ```
 
 ```jsx
+function disabilityAmount(employee) {
+  // 해당 부분의 의도가 들어나도록 함수를 만든다.
+	if (
+    employee.seniority < 2 || 
+    employee.monthsDisabled > 12 ||
+    employee.isPartTime) {
+    return 0;
+  }
+  return 1;
+}
+```
+
+```jsx
 if (isNotEligibleForDisability()) return 0
 
 function isNotEligibleForDisability() {
@@ -138,6 +151,71 @@ class NorwegianBlueParrot {
 	}
 }
 ...
+```
+```jsx
+class Bird{
+  #name;
+  constructor(name) {
+    this.#name = name
+  }
+
+  get name() {
+    return this.#name;
+  }
+
+  get plumage() {
+    return 'unknown';
+  }
+
+  get airSpeedVelocity() {
+    return null;
+  }
+}
+
+class EuropeanSwallow extends Bird {
+  constructor() {
+    super('EuropeanSwallow');
+  }
+
+  get plumage() {
+    return 'average';
+  }
+
+  get airSpeedVelocity() {
+    return 35;
+  }
+}
+
+class AfricanSwallow extends Bird {
+  constructor() {
+    super('AfricanSwallow')
+  }
+
+  get plumage() {
+    return this.numberOfCoconuts > 2 ? 'tired' : 'average';
+  }
+
+  get airSpeedVelocity() {
+    return 40 - 2 * this.numberOfCoconuts;
+  }
+}
+
+class NorwegianBlueParrot extends Bird {
+  constructor() {
+    super('NorwegianBlueParrot')
+  }
+
+  get plumage() {
+    return this.voltage > 100 ? 'scorched' : 'beautiful';
+  }
+
+  get airSpeedVelocity() {
+    return  this.isNailed ? 0 : 10 + this.voltage / 10;
+  }
+}
+
+const result = plumages([new NorwegianBlueParrot(), new AfricanSwallow(), new EuropeanSwallow()]);
+console.log(result);
 ```
 
 # 10.5 특이 케이스 추가하기
