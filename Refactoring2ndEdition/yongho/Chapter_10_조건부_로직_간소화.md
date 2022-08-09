@@ -419,6 +419,22 @@ if(this.discountRate)
 	base = base - (this.discountRate * base)
 ```
 
+```jsx
+import { strict as assert } from 'node:assert';
+
+class Customer {
+  constructor() {
+    this.discountRate = 0;
+  }
+  applyDiscount(number) {
+    assert(number >= 0);
+    return this.discountRate ? number - this.discountRate * number : number;
+  }
+}
+
+new Customer().applyDiscount(-1);
+```
+
 ## 배경
 
 - 어서션을 이용해서 코드 자체에 삽입
